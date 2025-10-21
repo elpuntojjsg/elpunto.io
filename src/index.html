@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Punto - Publicidad Textil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --parahero: #00012e; /* azul fondo */
+            --primary: #ff0000; /* Rojo puro */
+            --secondary: #f1c40f; /* Amarillo */
+            --accent: #ffffff; /* Blanco */
+            --light: #ecf0f1;
+            --navegadores: #ecf0f1;
+            --piepag: #ff0000;
+            --dark: #052d55;
+            --success: #27ae60;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Estilos del Encabezado */
+        header {
+            background: rgb(255, 0, 0);
+            color: var(--dark);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-image {
+            width: 200px;
+            height: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--navegadores);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding: 8px 12px;
+            border-radius: 5px;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        /* Sección Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--parahero) 0%, #02085e 100%);
+            color: rgb(255, 255, 255);
+            padding: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(241, 196, 15, 0.1)"/></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(241, 196, 15, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #f39c12;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(241, 196, 15, 0.6);
+        }
+
+        /* Sección de Servicios */
+        .services {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--dark);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: var(--secondary);
+        }
+        /*tamaño de las imagenes de los servicios*/
+        .service-image {
+            width: 300px;
+            height: 200px;
+            margin: 0 auto 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            color: var(--dark);
+            opacity: 0.8;
+        }
+
+        /* Páginas de Detalle de Servicio */
+        .service-detail {
+            display: none;
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .service-detail.active {
+            display: block;
+        }
+
+        .service-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .service-header h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-header .back-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+
+        .service-header .back-btn:hover {
+            background: #cc0000;
+        }
+
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .service-image-large {
+            width: 100%;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-image-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-description h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-description p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .service-features {
+            margin-top: 20px;
+        }
+
+        .service-features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-features li:before {
+            content: "✓";
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Galería de Fotos */
+        .photo-gallery {
+            margin-top: 3rem;
+            padding: 2rem 0;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .gallery-header h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .gallery-slides {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 400px;
+        }
+
+        .gallery-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .gallery-slide img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .gallery-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+
+        .gallery-control {
+            background: rgba(255,255,255,0.8);
+            color: var(--dark);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: background 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .gallery-control:hover {
+            background: white;
+        }
+
+        .gallery-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+            gap: 10px;
+        }
+
+        .gallery-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .gallery-indicator.active {
+            background: var(--primary);
+        }
+
+        /* Sección Sobre Nosotros */
+        .about {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+
+        /* Sección de Contacto */
+        .contact {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-size: 1.2rem;
+        }
+
+        .contact-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .contact-text p {
+            color: var(--dark);
+            opacity: 0.8;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #cc0000;
+        }
+
+        /* Pie de Página */
+        footer {
+            background: var(--piepag);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-logo p {
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(250, 225, 1, 0.774);
+            width: 100%;
+        }
+        ul {
+        text-align: left; /* Alinea el texto a la izquierda */
+        list-style: disc; /* Quita los puntos de la lista */
+        padding: 0;       /* Quita el espacio interior */
+        margin: 0;        /* Quita márgenes */
+        }
+
+        a {
+        color: white;     /* Letras blancas */
+        text-decoration: none; /* Quita el subrayado */
+        }
+
+
+        /* Ícono flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+            background: #128c7e;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Diseño Responsivo */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .about-content,
+            .contact-content,
+            .service-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .service-detail .service-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .gallery-slides {
+                height: 300px;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-image {
+                width: 150px;
+            }
+            
+            .service-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .gallery-slides {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <img src="logonuevo.png" alt="El Punto - Publicidad Textil" class="logo-image">
+            </div>
+            <nav class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero" id="inicio">
+        <div class="container hero-content">
+            <h2>El Punto - Publicidad Textil</h2>
+            <p>Todo tus servicios Textiles en un solo lugar!! </p>
+            <a href="https://wa.me/+51964934187?text=Hola,%20quisiera%20una%20cotizaci%C3%B3n%20para%3A" class="cta-button">Solicita un Presupuesto</a>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Servicios</h2>
+                <p>Ofrecemos una amplia gama de servicios textiles para satisfacer todas tus necesidades de publicidad y branding.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card" data-service="sublimacion">
+                    <div class="service-image">
+                        <img src="sublimation.jpg" alt="Sublimación Textil">
+                    </div>
+                    <h3>Sublimación Textil</h3>
+                    <p>Impresión de alta calidad con colores vibrantes y duraderos en prendas de poliéster.</p>
+                </div>
+                <div class="service-card" data-service="dtf">
+                    <div class="service-image">
+                        <img src="impresiondtf.jpg" alt="Impresión DTF">
+                    </div>
+                    <h3>Impresión DTF</h3>
+                    <p>Tecnología avanzada para impresión directa sobre film, ideal para todo tipo de telas.</p>
+                </div>
+                <div class="service-card" data-service="vinil">
+                    <div class="service-image">
+                        <img src="viniltextil.jpg" alt="Vinil Textil">
+                    </div>
+                    <h3>Vinil Textil</h3>
+                    <p>Aplicación de vinilos de corte para diseños personalizados y duraderos.</p>
+                </div>
+                <div class="service-card" data-service="serigrafia">
+                    <div class="service-image">
+                        <img src="serigrafia.jpg" alt="Serigrafía Profesional">
+                    </div>
+                    <h3>Serigrafía Profesional</h3>
+                    <p>Impresión tradicional de alta calidad para grandes volúmenes y acabados premium.</p>
+                </div>
+                <div class="service-card" data-service="confeccion">
+                    <div class="service-image">
+                        <img src="confecciontextil.jpg" alt="Confección Textil">
+                    </div>
+                    <h3>Confección Textil</h3>
+                    <p>Creación de prendas personalizadas desde cero, con los mejores materiales y acabados.</p>
+                </div>
+                <div class="service-card" data-service="bordados">
+                    <div class="service-image">
+                        <img src="bordado.jpg" alt="Bordados Computarizados">
+                    </div>
+                    <h3>Bordados Computarizados</h3>
+                    <p>Diseños bordados con precisión y calidad profesional para un acabado elegante.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Páginas de Detalle de Servicio -->
+    <section class="service-detail" id="sublimacion-detail">
+        <div class="container">
+            <div class="service-header">
+                <h2>Sublimación Textil</h2>
+                <p>La mejor tecnología para impresión en prendas de poliéster</p>
+                <a href="#servicios" class="back-btn">Volver a Servicios</a>
+            </div>
+            <div class="service-content">
+                <div class="service-image-large">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5TdWJsaW1hY2nDs24gVGV4dGlsPC90ZXh0PgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNTAiIGZpbGw9IiNmZjAwMDAiIC8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YxYzQwZiIgLz4KPC9zdmc+" alt="Sublimación Textil">
+                </div>
+                <div class="service-description">
+                    <h3>¿Qué es la Sublimación Textil?</h3>
+                    <p>La sublimación textil es un proceso de impresión que utiliza calor para transferir tintas especiales directamente a las fibras del tejido. Este método ofrece resultados excepcionales con colores vibrantes, duraderos y resistentes al lavado.</p>
+                    <p>Es ideal para prendas deportivas, uniformes corporativos, merchandising y cualquier prenda que requiera diseños personalizados de alta calidad.</p>
+                    <div class="service-features">
+                        <h4>Ventajas:</h4>
+                        <ul>
+                            <li>Colores vibrantes y fotográficos</li>
+                            <li>Resistente al lavado y al desgaste</li>
+                            <li>Ideal para grandes volúmenes</li>
+                            <li>Acabado suave al tacto</li>
+                            <li>Perfecto para diseños complejos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Galería de Fotos -->
+            <div class="photo-gallery">
+                <div class="gallery-header">
+                    <h3>Trabajos Realizados</h3>
+                    <p>Algunos de nuestros proyectos de sublimación textil</p>
+                </div>
+                <div class="gallery-container">
+                    <div class="gallery-slides">
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5TdWJsaW1hY2nDs24gVGV4dGlsPC90ZXh0PgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNTAiIGZpbGw9IiNmZjAwMDAiIC8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YxYzQwZiIgLz4KPC9zdmc+" alt="Sublimación Textil 1">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5TdWJsaW1hY2nDs24gVGV4dGlsIDI8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YxYzQwZiIgLz4KICA8Y2lyY2xlIGN4PSIzMDAiIGN5PSIxMDAiIHI9IjUwIiBmaWxsPSIjZmYwMDAwIiAvPgo8L3N2Zz4=" alt="Sublimación Textil 2">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5TdWJsaW1hY2nDs24gVGV4dGlsIDM8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YyOTkzMCIgLz4KICA8Y2lyY2xlIGN4PSIzMDAiIGN5PSIxMDAiIHI9IjUwIiBmaWxsPSIjZmYwMDAwIiAvPgo8L3N2Zz4=" alt="Sublimación Textil 3">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5TdWJsaW1hY2nDs24gVGV4dGlsIDQ8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YzOTkzMCIgLz4KICA8Y2lyY2xlIGN4PSIzMDAiIGN5PSIxMDAiIHI9IjUwIiBmaWxsPSIjZjFjNDBmIiAvPgo8L3N2Zz4=" alt="Sublimación Textil 4">
+                        </div>
+                    </div>
+                    <div class="gallery-controls">
+                        <div class="gallery-control prev">‹</div>
+                        <div class="gallery-control next">›</div>
+                    </div>
+                    <div class="gallery-indicators">
+                        <div class="gallery-indicator active"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-detail" id="dtf-detail">
+        <div class="container">
+            <div class="service-header">
+                <h2>Impresión DTF</h2>
+                <p>Tecnología revolucionaria para todo tipo de telas</p>
+                <a href="#servicios" class="back-btn">Volver a Servicios</a>
+            </div>
+            <div class="service-content">
+                <div class="service-image-large">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5JbXByZXNpw7NuIERURjwvdGV4dD4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjUwIiBmaWxsPSIjZmYwMDAwIiAvPgo8L3N2Zz4=" alt="Impresión DTF">
+                </div>
+                <div class="service-description">
+                    <h3>¿Qué es la Impresión DTF?</h3>
+                    <p>DTF (Direct to Film) es una tecnología de impresión avanzada que permite imprimir diseños directamente sobre una película especial, que luego se transfiere a cualquier tipo de tela mediante calor y presión.</p>
+                    <p>Esta técnica es perfecta para prendas de algodón, mezclas y otros materiales donde la sublimación no es efectiva, ofreciendo resultados profesionales con colores intensos y detalles precisos.</p>
+                    <div class="service-features">
+                        <h4>Ventajas:</h4>
+                        <ul>
+                            <li>Funciona en cualquier tipo de tela</li>
+                            <li>Colores brillantes y opacos</li>
+                            <li>Ideal para pequeños y medianos volúmenes</li>
+                            <li>Alta resistencia al lavado</li>
+                            <li>Perfecto para diseños con colores claros</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Galería de Fotos -->
+            <div class="photo-gallery">
+                <div class="gallery-header">
+                    <h3>Trabajos Realizados</h3>
+                    <p>Algunos de nuestros proyectos de impresión DTF</p>
+                </div>
+                <div class="gallery-container">
+                    <div class="gallery-slides">
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5JbXByZXNpw7NuIERURjwvdGV4dD4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjUwIiBmaWxsPSIjZmYwMDAwIiAvPgo8L3N2Zz4=" alt="Impresión DTF 1">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5JbXByZXNpw7NuIERURjI8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YxYzQwZiIgLz4KPC9zdmc+" alt="Impresión DTF 2">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5JbXByZXNpw7NuIERURjM8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YyOTkzMCIgLz4KPC9zdmc+" alt="Impresión DTF 3">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5JbXByZXNpw7NuIERURjQ8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YzOTkzMCIgLz4KPC9zdmc+" alt="Impresión DTF 4">
+                        </div>
+                    </div>
+                    <div class="gallery-controls">
+                        <div class="gallery-control prev">‹</div>
+                        <div class="gallery-control next">›</div>
+                    </div>
+                    <div class="gallery-indicators">
+                        <div class="gallery-indicator active"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-detail" id="vinil-detail">
+        <div class="container">
+            <div class="service-header">
+                <h2>Vinil Textil</h2>
+                <p>Aplicación profesional de vinilos de corte</p>
+                <a href="#servicios" class="back-btn">Volver a Servicios</a>
+            </div>
+            <div class="service-content">
+                <div class="service-image-large">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5WaW5pbCBUZXh0aWw8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YyOTkzMCIgLz4KPC9zdmc+" alt="Vinil Textil">
+                </div>
+                <div class="service-description">
+                    <h3>¿Qué es el Vinil Textil?</h3>
+                    <p>El vinil textil consiste en la aplicación de materiales vinílicos de corte sobre prendas textiles. Utilizamos vinilos de alta calidad que se adhieren perfectamente a la tela mediante calor y presión, creando diseños duraderos y profesionales.</p>
+                    <p>Es ideal para números, letras, logotipos simples y diseños vectoriales que requieren un acabado limpio y profesional.</p>
+                    <div class="service-features">
+                        <h4>Ventajas:</h4>
+                        <ul>
+                            <li>Acabado profesional y limpio</li>
+                            <li>Alta durabilidad y resistencia</li>
+                            <li>Perfecto para textos y logotipos</li>
+                            <li>Rápido tiempo de producción</li>
+                            <li>Disponible en múltiples colores y acabados</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Galería de Fotos -->
+            <div class="photo-gallery">
+                <div class="gallery-header">
+                    <h3>Trabajos Realizados</h3>
+                    <p>Algunos de nuestros proyectos de vinil textil</p>
+                </div>
+                <div class="gallery-container">
+                    <div class="gallery-slides">
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5WaW5pbCBUZXh0aWw8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YyOTkzMCIgLz4KPC9zdmc+" alt="Vinil Textil 1">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5WaW5pbCBUZXh0aWwyPC90ZXh0PgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNTAiIGZpbGw9IiNmZjAwMDAiIC8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YxYzQwZiIgLz4KPC9zdmc+" alt="Vinil Textil 2">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5WaW5pbCBUZXh0aWwzPC90ZXh0PgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNTAiIGZpbGw9IiNmZjAwMDAiIC8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YyOTkzMCIgLz4KPC9zdmc+" alt="Vinil Textil 3">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5WaW5pbCBUZXh0aWw0PC90ZXh0PgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNTAiIGZpbGw9IiNmZjAwMDAiIC8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YzOTkzMCIgLz4KPC9zdmc+" alt="Vinil Textil 4">
+                        </div>
+                    </div>
+                    <div class="gallery-controls">
+                        <div class="gallery-control prev">‹</div>
+                        <div class="gallery-control next">›</div>
+                    </div>
+                    <div class="gallery-indicators">
+                        <div class="gallery-indicator active"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-detail" id="serigrafia-detail">
+        <div class="container">
+            <div class="service-header">
+                <h2>Serigrafía Profesional</h2>
+                <p>El clásico método de impresión con resultados premium</p>
+                <a href="#servicios" class="back-btn">Volver a Servicios</a>
+            </div>
+            <div class="service-content">
+                <div class="service-image-large">
+                    <img src="../images/portadaSeri.jpg" alt="Serigrafía Profesional">
+                </div>
+                <div class="service-description">
+                    <h3>¿Qué es la Serigrafía Profesional?</h3>
+                    <p>La serigrafía es un método de impresión tradicional que utiliza mallas y tintas especiales para transferir diseños a las prendas. Nuestro proceso profesional garantiza colores intensos, cobertura total y acabados de alta calidad.</p>
+                    <p>Es ideal para grandes volúmenes, uniformes corporativos, camisetas promocionales y cualquier proyecto que requiera impresión de alta calidad y durabilidad extrema.</p>
+                    <div class="service-features">
+                        <h4>Ventajas:</h4>
+                        <ul>
+                            <li>Colores intensos y opacos</li>
+                            <li>Ideal para grandes volúmenes</li>
+                            <li>Alta durabilidad y resistencia</li>
+                            <li>Costo efectivo por unidad</li>
+                            <li>Perfecto para fondos oscuros</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Galería de Fotos -->
+            <div class="photo-gallery">
+                <div class="gallery-header">
+                    <h3>Trabajos Realizados</h3>
+                    <p>Algunos de nuestros proyectos de serigrafía profesional</p>
+                </div>
+                <div class="gallery-container">
+                    <div class="gallery-slides">
+                        <div class="gallery-slide">
+                            <img src="../images/seri1.jpg" alt="Serigrafía Profesional 1">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="../images/seri3.jpg" alt="Serigrafía Profesional 2">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="../images/seri4.jpg" alt="Serigrafía Profesional 3">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="../images/seri5.jpg" alt="Serigrafía Profesional 4">
+                        </div>
+                    </div>
+                    <div class="gallery-controls">
+                        <div class="gallery-control prev">‹</div>
+                        <div class="gallery-control next">›</div>
+                    </div>
+                    <div class="gallery-indicators">
+                        <div class="gallery-indicator active"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-detail" id="confeccion-detail">
+        <div class="container">
+            <div class="service-header">
+                <h2>Confección Textil</h2>
+                <p>Creación de prendas personalizadas desde cero</p>
+                <a href="#servicios" class="back-btn">Volver a Servicios</a>
+            </div>
+            <div class="service-content">
+                <div class="service-image-large">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Db25mZWNjacOzbiBUZXh0aWw8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YyOTkzMCIgLz4KPC9zdmc+" alt="Confección Textil">
+                </div>
+                <div class="service-description">
+                    <h3>¿Qué es la Confección Textil?</h3>
+                    <p>Nuestro servicio de confección textil permite crear prendas personalizadas completamente desde cero, según tus especificaciones y necesidades. Desde el diseño hasta la producción final, controlamos cada detalle para garantizar la máxima calidad.</p>
+                    <p>Ofrecemos confección de uniformes corporativos, indumentaria deportiva, ropa promocional y colecciones personalizadas con los mejores materiales y acabados profesionales.</p>
+                    <div class="service-features">
+                        <h4>Ventajas:</h4>
+                        <ul>
+                            <li>Diseño y patrones personalizados</li>
+                            <li>Selección de materiales premium</li>
+                            <li>Control total de calidad</li>
+                            <li>Producción a medida</li>
+                            <li>Asesoramiento profesional en diseño</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Galería de Fotos -->
+            <div class="photo-gallery">
+                <div class="gallery-header">
+                    <h3>Trabajos Realizados</h3>
+                    <p>Algunos de nuestros proyectos de confección textil</p>
+                </div>
+                <div class="gallery-container">
+                    <div class="gallery-slides">
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Db25mZWNjacOzbiBUZXh0aWw8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YyOTkzMCIgLz4KPC9zdmc+" alt="Confección Textil 1">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Db25mZWNjacOzbiBUZXh0aWwyPC90ZXh0PgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNTAiIGZpbGw9IiNmZjAwMDAiIC8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YxYzQwZiIgLz4KPC9zdmc+" alt="Confección Textil 2">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Db25mZWNjacOzbiBUZXh0aWwzPC90ZXh0PgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNTAiIGZpbGw9IiNmZjAwMDAiIC8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YyOTkzMCIgLz4KPC9zdmc+" alt="Confección Textil 3">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Db25mZWNjacOzbiBUZXh0aWw0PC90ZXh0PgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNTAiIGZpbGw9IiNmZjAwMDAiIC8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YzOTkzMCIgLz4KPC9zdmc+" alt="Confección Textil 4">
+                        </div>
+                    </div>
+                    <div class="gallery-controls">
+                        <div class="gallery-control prev">‹</div>
+                        <div class="gallery-control next">›</div>
+                    </div>
+                    <div class="gallery-indicators">
+                        <div class="gallery-indicator active"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-detail" id="bordados-detail">
+        <div class="container">
+            <div class="service-header">
+                <h2>Bordados Computarizados</h2>
+                <p>Precisión y elegancia en cada puntada</p>
+                <a href="#servicios" class="back-btn">Volver a Servicios</a>
+            </div>
+            <div class="service-content">
+                <div class="service-image-large">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Cb3JkYWRvcyBDb21wdXRhcml6YWRvczwvdGV4dD4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjUwIiBmaWxsPSIjZmYwMDAwIiAvPgo8L3N2Zz4=" alt="Bordados Computarizados">
+                </div>
+                <div class="service-description">
+                    <h3>¿Qué son los Bordados Computarizados?</h3>
+                    <p>El bordado computarizado utiliza máquinas especializadas para crear diseños textiles con hilo, ofreciendo un acabado elegante, duradero y profesional. Cada diseño se digitaliza previamente para garantizar la máxima precisión en cada puntada.</p>
+                    <p>Es ideal para logotipos corporativos, uniformes profesionales, indumentaria deportiva y cualquier prenda que requiera un toque de distinción y calidad premium.</p>
+                    <div class="service-features">
+                        <h4>Ventajas:</h4>
+                        <ul>
+                            <li>Acabado elegante y profesional</li>
+                            <li>Extrema durabilidad</li>
+                            <li>Perfecto para logotipos corporativos</li>
+                            <li>Disponible en múltiples colores de hilo</li>
+                            <li>Ideal para prendas de alta gama</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Galería de Fotos -->
+            <div class="photo-gallery">
+                <div class="gallery-header">
+                    <h3>Trabajos Realizados</h3>
+                    <p>Algunos de nuestros proyectos de bordados computarizados</p>
+                </div>
+                <div class="gallery-container">
+                    <div class="gallery-slides">
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Cb3JkYWRvcyBDb21wdXRhcml6YWRvczwvdGV4dD4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjUwIiBmaWxsPSIjZmYwMDAwIiAvPgo8L3N2Zz4=" alt="Bordados Computarizados 1">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Cb3JkYWRvcyBDb21wdXRhcml6YWRvczI8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YxYzQwZiIgLz4KPC9zdmc+" alt="Bordados Computarizados 2">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Cb3JkYWRvcyBDb21wdXRhcml6YWRvczM8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YyOTkzMCIgLz4KPC9zdmc+" alt="Bordados Computarizados 3">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Cb3JkYWRvcyBDb21wdXRhcml6YWRvczQ8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YzOTkzMCIgLz4KPC9zdmc+" alt="Bordados Computarizados 4">
+                        </div>
+                    </div>
+                    <div class="gallery-controls">
+                        <div class="gallery-control prev">‹</div>
+                        <div class="gallery-control next">›</div>
+                    </div>
+                    <div class="gallery-indicators">
+                        <div class="gallery-indicator active"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Nosotros -->
+    <section class="about" id="nosotros">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Sobre Nosotros</h2>
+                    <p>En <strong>El Punto - Publicidad Textil</strong>, nos especializamos en brindar soluciones integrales para la personalización y publicidad textil. Con años de experiencia en el mercado, hemos construido una reputación basada en la calidad, innovación y compromiso con nuestros clientes.</p>
+                    <p>Nuestro equipo de profesionales altamente capacitados utiliza las últimas tecnologías y materiales de primera calidad para garantizar resultados excepcionales en cada proyecto. Ya sea que necesites uniformes corporativos, merchandising para eventos, o prendas personalizadas para tu negocio, estamos aquí para hacer realidad tu visión.</p>
+                    <p>Nos enorgullece ofrecer un servicio personalizado, atención al detalle y plazos de entrega confiables. ¡Tu marca merece lo mejor, y en El Punto lo hacemos posible!</p>
+                </div>
+                <div class="about-image">
+                    <div class="map-responsive">
+                        <iframe
+                            src="https://www.google.com/maps?q=-12.073085851963477,-75.20699215370327&z=15&output=embed"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <i class=""></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contáctanos</h2>
+                <p>¿Listo para llevar tu marca al siguiente nivel? Ponte en contacto con nosotros hoy mismo.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Dirección</h4>
+                            <p>Jr. Huanúco 350 Int. 16 (C.C. Mercaderes) - Huancayo<br> Jr. Huanúco 248 Gamarra Wanka 3er Piso Stand 43 - Huancayo</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Teléfono</h4>
+                            <p>964 934 187<br>970 967 429<br>998 816 704<br>964 496 680</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>elpuntohyo@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Horario de Atención</h4>
+                            <p>Lunes a Sábado: 9:00 - 19:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Nombre Completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Teléfono">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>El Punto</h3>
+                    <p>Publicidad Textil</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://wa.me/+51964934187?text=Hola,%20quisiera%20una%20cotizaci%C3%B3n%20para%3A"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/elpuntoserigrafiaprofesional/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100064311026790"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.tiktok.com/@elpuntoserigrafiaprofesional"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+                <div class="footer-columna">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#contacto">Contactanos</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 El Punto - Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Ícono flotante de WhatsApp -->
+    <a href="https://wa.me/+51964934187?text=Hola,%20quisiera%20una%20cotizaci%C3%B3n%20para%3A" class="whatsapp-float" target="_blank" title="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Manejadores de clic para las tarjetas de servicio
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const serviceId = this.getAttribute('data-service');
+                // Ocultar todos los detalles de servicio
+                document.querySelectorAll('.service-detail').forEach(detail => {
+                    detail.classList.remove('active');
+                });
+                // Mostrar el detalle de servicio seleccionado
+                document.getElementById(serviceId + '-detail').classList.add('active');
+                // Desplazarse al detalle de servicio
+                document.getElementById(serviceId + '-detail').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Manejadores de botón de regreso
+        document.querySelectorAll('.back-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Ocultar todos los detalles de servicio
+                document.querySelectorAll('.service-detail').forEach(detail => {
+                    detail.classList.remove('active');
+                });
+                // Desplazarse a la sección de servicios
+                document.getElementById('servicios').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Galerías de fotos deslizantes
+        document.querySelectorAll('.gallery-container').forEach(container => {
+            const slides = container.querySelector('.gallery-slides');
+            const prevBtn = container.querySelector('.prev');
+            const nextBtn = container.querySelector('.next');
+            const indicators = container.querySelectorAll('.gallery-indicator');
+            let currentSlide = 0;
+            const totalSlides = slides.children.length;
+
+            // Inicializar galería
+            function updateGallery() {
+                slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                // Actualizar indicadores
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentSlide);
+                });
+            }
+
+            // Diapositiva anterior
+            prevBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateGallery();
+            });
+
+            // Diapositiva siguiente
+            nextBtn.addEventListener('click', () => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateGallery();
+            });
+
+            // Clics en indicadores
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentSlide = index;
+                    updateGallery();
+                });
+            });
+
+            // Reproducción automática
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateGallery();
+            }, 5000);
+        });
+
+        // Desplazamiento suave para enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            if (!anchor.classList.contains('back-btn') && !anchor.closest('.service-card')) {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            }
+        });
+
+        // Manejo de envío de formulario
+        const contactForm = document.querySelector('.contact-form form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+                this.reset();
+            });
+        }
+    </script>
+</body>
+</html>
+```
