@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Punto - Publicidad Textil</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="manifest" href="site.webmanifest">
+    <!-- Favicons / PWA -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="icon" type="image/png" sizes="192x192" href="android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="android-chrome-512x512.png">
+    <meta name="theme-color" content="#ff0000">
+    <meta name="msapplication-TileColor" content="#ff0000">
 
     <style>
         * {
@@ -580,6 +586,23 @@
             border-top: 1px solid rgba(250, 225, 1, 0.774);
             width: 100%;
         }
+        
+        .phone-link {
+            color: var(--dark);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .phone-link:hover {
+            color: var(--primary);
+        }
+        
+        .phone-link .fa-whatsapp {
+            color: #25d366;
+        }
         ul {
         text-align: left; /* Alinea el texto a la izquierda */
         list-style: disc; /* Quita los puntos de la lista */
@@ -634,17 +657,26 @@
         }
 
         /* Diseño Responsivo */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .header-content {
                 flex-direction: column;
-                gap: 20px;
+                gap: 15px;
             }
 
             .nav-links {
                 flex-wrap: wrap;
                 justify-content: center;
+                gap: 15px;
             }
 
+            .about-content,
+            .contact-content,
+            .service-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
             .hero h2 {
                 font-size: 2.5rem;
             }
@@ -653,10 +685,8 @@
                 font-size: 1.2rem;
             }
 
-            .about-content,
-            .contact-content,
-            .service-content {
-                grid-template-columns: 1fr;
+            .section-title h2 {
+                font-size: 2.2rem;
             }
 
             .footer-content {
@@ -676,6 +706,13 @@
                 width: 50px;
                 height: 50px;
                 font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .service-image {
+                width: 100%;
+                height: auto;
             }
         }
 
@@ -702,6 +739,16 @@
             
             .gallery-slides {
                 height: 250px;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 1rem;
+                padding: 6px 10px;
             }
         }
     </style>
@@ -745,6 +792,7 @@
                     </div>
                     <h3>Sublimación Textil</h3>
                     <p>Impresión de alta calidad con colores vibrantes y duraderos en prendas de poliéster.</p>
+                    <a href="https://wa.me/+51964934187?text=Hola,%20quisiera%20una%20cotizaci%C3%B3n%20para%20Sublimaci%C3%B3n%20Textil" class="cta-button" style="margin-top: 15px; display: inline-block; font-size: 1rem; padding: 10px 20px;">Cotizar por Whatsapp</a>
                 </div>
                 <div class="service-card" data-service="dtf">
                     <div class="service-image">
@@ -752,6 +800,7 @@
                     </div>
                     <h3>Impresión DTF</h3>
                     <p>Tecnología avanzada para impresión directa sobre film, ideal para todo tipo de telas.</p>
+                    <a href="https://wa.me/+51964934187?text=Hola,%20quisiera%20una%20cotizaci%C3%B3n%20para%20Impresi%C3%B3n%20DTF" class="cta-button" style="margin-top: 15px; display: inline-block; font-size: 1rem; padding: 10px 20px;">Cotizar por Whatsapp</a>
                 </div>
                 <div class="service-card" data-service="vinil">
                     <div class="service-image">
@@ -759,6 +808,7 @@
                     </div>
                     <h3>Vinil Textil</h3>
                     <p>Aplicación de vinilos de corte para diseños personalizados y duraderos.</p>
+                    <a href="https://wa.me/+51964934187?text=Hola,%20quisiera%20una%20cotizaci%C3%B3n%20para%20Vinil%20Textil" class="cta-button" style="margin-top: 15px; display: inline-block; font-size: 1rem; padding: 10px 20px;">Cotizar por Whatsapp</a>
                 </div>
                 <div class="service-card" data-service="serigrafia">
                     <div class="service-image">
@@ -766,6 +816,7 @@
                     </div>
                     <h3>Serigrafía Profesional</h3>
                     <p>Impresión tradicional de alta calidad para grandes volúmenes y acabados premium.</p>
+                    <a href="https://wa.me/+51964934187?text=Hola,%20quisiera%20una%20cotizaci%C3%B3n%20para%20Serigraf%C3%ADa%20Profesional" class="cta-button" style="margin-top: 15px; display: inline-block; font-size: 1rem; padding: 10px 20px;">Cotizar por Whatsapp</a>
                 </div>
                 <div class="service-card" data-service="confeccion">
                     <div class="service-image">
@@ -773,6 +824,7 @@
                     </div>
                     <h3>Confección Textil</h3>
                     <p>Creación de prendas personalizadas desde cero, con los mejores materiales y acabados.</p>
+                    <a href="https://wa.me/+51964934187?text=Hola,%20quisiera%20una%20cotizaci%C3%B3n%20para%20Confecci%C3%B3n%20Textil" class="cta-button" style="margin-top: 15px; display: inline-block; font-size: 1rem; padding: 10px 20px;">Cotizar por Whatsapp</a>
                 </div>
                 <div class="service-card" data-service="bordados">
                     <div class="service-image">
@@ -780,6 +832,7 @@
                     </div>
                     <h3>Bordados Computarizados</h3>
                     <p>Diseños bordados con precisión y calidad profesional para un acabado elegante.</p>
+                    <a href="https://wa.me/+51964934187?text=Hola,%20quisiera%20una%20cotizaci%C3%B3n%20para%20Bordados%20Computarizados" class="cta-button" style="margin-top: 15px; display: inline-block; font-size: 1rem; padding: 10px 20px;">Cotizar por Whatsapp</a>
                 </div>
             </div>
         </div>
@@ -795,7 +848,7 @@
             </div>
             <div class="service-content">
                 <div class="service-image-large">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5TdWJsaW1hY2nDs24gVGV4dGlsPC90ZXh0PgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNTAiIGZpbGw9IiNmZjAwMDAiIC8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YxYzQwZiIgLz4KPC9zdmc+" alt="Sublimación Textil">
+                    <img src="images/subliportada.jpg" alt="Sublimación Textil">
                 </div>
                 <div class="service-description">
                     <h3>¿Qué es la Sublimación Textil?</h3>
@@ -823,16 +876,28 @@
                 <div class="gallery-container">
                     <div class="gallery-slides">
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5TdWJsaW1hY2nDs24gVGV4dGlsPC90ZXh0PgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNTAiIGZpbGw9IiNmZjAwMDAiIC8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YxYzQwZiIgLz4KPC9zdmc+" alt="Sublimación Textil 1">
+                            <img src="images/subli1.jpg" alt="Sublimación Textil 1">
                         </div>
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5TdWJsaW1hY2nDs24gVGV4dGlsIDI8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YxYzQwZiIgLz4KICA8Y2lyY2xlIGN4PSIzMDAiIGN5PSIxMDAiIHI9IjUwIiBmaWxsPSIjZmYwMDAwIiAvPgo8L3N2Zz4=" alt="Sublimación Textil 2">
+                            <img src="images/subli2.jpg" alt="Sublimación Textil 2">
                         </div>
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5TdWJsaW1hY2nDs24gVGV4dGlsIDM8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YyOTkzMCIgLz4KICA8Y2lyY2xlIGN4PSIzMDAiIGN5PSIxMDAiIHI9IjUwIiBmaWxsPSIjZmYwMDAwIiAvPgo8L3N2Zz4=" alt="Sublimación Textil 3">
+                            <img src="images/subli3.jpg" alt="Sublimación Textil 3">
                         </div>
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5TdWJsaW1hY2nDs24gVGV4dGlsIDQ8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YzOTkzMCIgLz4KICA8Y2lyY2xlIGN4PSIzMDAiIGN5PSIxMDAiIHI9IjUwIiBmaWxsPSIjZjFjNDBmIiAvPgo8L3N2Zz4=" alt="Sublimación Textil 4">
+                            <img src="images/subli4.jpg" alt="Sublimación Textil 4">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/subli5.jpg" alt="Sublimación Textil 5">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/subli6.jpg" alt="Sublimación Textil 6">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/subli7.jpg" alt="Sublimación Textil 7">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/subli8.jpg" alt="Sublimación Textil 8">
                         </div>
                     </div>
                     <div class="gallery-controls">
@@ -841,6 +906,10 @@
                     </div>
                     <div class="gallery-indicators">
                         <div class="gallery-indicator active"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
                         <div class="gallery-indicator"></div>
                         <div class="gallery-indicator"></div>
                         <div class="gallery-indicator"></div>
@@ -859,7 +928,7 @@
             </div>
             <div class="service-content">
                 <div class="service-image-large">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5JbXByZXNpw7NuIERURjwvdGV4dD4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjUwIiBmaWxsPSIjZmYwMDAwIiAvPgo8L3N2Zz4=" alt="Impresión DTF">
+                    <img src="images/dtfportada.jpg" alt="Impresión DTF">
                 </div>
                 <div class="service-description">
                     <h3>¿Qué es la Impresión DTF?</h3>
@@ -887,16 +956,28 @@
                 <div class="gallery-container">
                     <div class="gallery-slides">
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5JbXByZXNpw7NuIERURjwvdGV4dD4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjUwIiBmaWxsPSIjZmYwMDAwIiAvPgo8L3N2Zz4=" alt="Impresión DTF 1">
+                            <img src="images/dtf1.jpg" alt="Impresión DTF 1">
                         </div>
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5JbXByZXNpw7NuIERURjI8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YxYzQwZiIgLz4KPC9zdmc+" alt="Impresión DTF 2">
+                            <img src="images/dtf2.jpg" alt="Impresión DTF 2">
                         </div>
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5JbXByZXNpw7NuIERURjM8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YyOTkzMCIgLz4KPC9zdmc+" alt="Impresión DTF 3">
+                            <img src="images/dtf3.jpg" alt="Impresión DTF 3">
                         </div>
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5JbXByZXNpw7NuIERURjQ8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YzOTkzMCIgLz4KPC9zdmc+" alt="Impresión DTF 4">
+                            <img src="images/dtf4.jpg" alt="Impresión DTF 4">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/dtf5.jpg" alt="Impresión DTF 5">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/dtf6.jpg" alt="Impresión DTF 6">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/dtf7.jpg" alt="Impresión DTF 7">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/dtf8.jpg" alt="Impresión DTF 8">
                         </div>
                     </div>
                     <div class="gallery-controls">
@@ -905,6 +986,10 @@
                     </div>
                     <div class="gallery-indicators">
                         <div class="gallery-indicator active"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
                         <div class="gallery-indicator"></div>
                         <div class="gallery-indicator"></div>
                         <div class="gallery-indicator"></div>
@@ -923,7 +1008,7 @@
             </div>
             <div class="service-content">
                 <div class="service-image-large">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5WaW5pbCBUZXh0aWw8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YyOTkzMCIgLz4KPC9zdmc+" alt="Vinil Textil">
+                    <img src="images/vinilportada.jpg" alt="Vinil Textil">
                 </div>
                 <div class="service-description">
                     <h3>¿Qué es el Vinil Textil?</h3>
@@ -951,16 +1036,28 @@
                 <div class="gallery-container">
                     <div class="gallery-slides">
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5WaW5pbCBUZXh0aWw8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YyOTkzMCIgLz4KPC9zdmc+" alt="Vinil Textil 1">
+                            <img src="images/vinil1.jpg" alt="Vinil Textil 1">
                         </div>
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5WaW5pbCBUZXh0aWwyPC90ZXh0PgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNTAiIGZpbGw9IiNmZjAwMDAiIC8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YxYzQwZiIgLz4KPC9zdmc+" alt="Vinil Textil 2">
+                            <img src="images/vinil2.jpg" alt="Vinil Textil 2">
                         </div>
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5WaW5pbCBUZXh0aWwzPC90ZXh0PgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNTAiIGZpbGw9IiNmZjAwMDAiIC8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YyOTkzMCIgLz4KPC9zdmc+" alt="Vinil Textil 3">
+                            <img src="images/vinil3.jpg" alt="Vinil Textil 3">
                         </div>
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5WaW5pbCBUZXh0aWw0PC90ZXh0PgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNTAiIGZpbGw9IiNmZjAwMDAiIC8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YzOTkzMCIgLz4KPC9zdmc+" alt="Vinil Textil 4">
+                            <img src="images/vinil4.jpg" alt="Vinil Textil 4">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/vinil5.jpg" alt="Vinil Textil 5">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/vinil6.jpg" alt="Vinil Textil 6">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/vinil7.jpg" alt="Vinil Textil 7">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/vinil8.jpg" alt="Vinil Textil 8">
                         </div>
                     </div>
                     <div class="gallery-controls">
@@ -969,6 +1066,10 @@
                     </div>
                     <div class="gallery-indicators">
                         <div class="gallery-indicator active"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
                         <div class="gallery-indicator"></div>
                         <div class="gallery-indicator"></div>
                         <div class="gallery-indicator"></div>
@@ -1026,6 +1127,18 @@
                         <div class="gallery-slide">
                             <img src="images/seri5.jpg" alt="Serigrafía Profesional 4">
                         </div>
+                        <div class="gallery-slide">
+                            <img src="images/seri6.jpg" alt="Serigrafía Profesional 5">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/seri7.jpg" alt="Serigrafía Profesional 6">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/seri8.jpg" alt="Serigrafía Profesional 7">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/seri2.jpg" alt="Serigrafía Profesional 8">
+                        </div>
                     </div>
                     <div class="gallery-controls">
                         <div class="gallery-control prev">‹</div>
@@ -1033,6 +1146,10 @@
                     </div>
                     <div class="gallery-indicators">
                         <div class="gallery-indicator active"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
                         <div class="gallery-indicator"></div>
                         <div class="gallery-indicator"></div>
                         <div class="gallery-indicator"></div>
@@ -1051,7 +1168,7 @@
             </div>
             <div class="service-content">
                 <div class="service-image-large">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Db25mZWNjacOzbiBUZXh0aWw8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YyOTkzMCIgLz4KPC9zdmc+" alt="Confección Textil">
+                    <img src="images/confeportada.jpg" alt="Confección Textil">
                 </div>
                 <div class="service-description">
                     <h3>¿Qué es la Confección Textil?</h3>
@@ -1079,16 +1196,28 @@
                 <div class="gallery-container">
                     <div class="gallery-slides">
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Db25mZWNjacOzbiBUZXh0aWw8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YyOTkzMCIgLz4KPC9zdmc+" alt="Confección Textil 1">
+                            <img src="images/confe1.jpg" alt="Confección Textil 1">
                         </div>
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Db25mZWNjacOzbiBUZXh0aWwyPC90ZXh0PgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNTAiIGZpbGw9IiNmZjAwMDAiIC8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YxYzQwZiIgLz4KPC9zdmc+" alt="Confección Textil 2">
+                            <img src="images/confe2.jpg" alt="Confección Textil 2">
                         </div>
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Db25mZWNjacOzbiBUZXh0aWwzPC90ZXh0PgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNTAiIGZpbGw9IiNmZjAwMDAiIC8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YyOTkzMCIgLz4KPC9zdmc+" alt="Confección Textil 3">
+                            <img src="images/confe3.jpg" alt="Confección Textil 3">
                         </div>
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Db25mZWNjacOzbiBUZXh0aWw0PC90ZXh0PgogIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNTAiIGZpbGw9IiNmZjAwMDAiIC8+CiAgPGNpcmNsZSBjeD0iMzAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YzOTkzMCIgLz4KPC9zdmc+" alt="Confección Textil 4">
+                            <img src="images/confe4.jpg" alt="Confección Textil 4">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/confe5.jpg" alt="Confección Textil 5">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/confe6.jpg" alt="Confección Textil 6">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/confe7.jpg" alt="Confección Textil 7">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/confe8.jpg" alt="Confección Textil 8">
                         </div>
                     </div>
                     <div class="gallery-controls">
@@ -1097,6 +1226,10 @@
                     </div>
                     <div class="gallery-indicators">
                         <div class="gallery-indicator active"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
                         <div class="gallery-indicator"></div>
                         <div class="gallery-indicator"></div>
                         <div class="gallery-indicator"></div>
@@ -1115,7 +1248,7 @@
             </div>
             <div class="service-content">
                 <div class="service-image-large">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Cb3JkYWRvcyBDb21wdXRhcml6YWRvczwvdGV4dD4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjUwIiBmaWxsPSIjZmYwMDAwIiAvPgo8L3N2Zz4=" alt="Bordados Computarizados">
+                    <img src="images/bordadoportada.jpg" alt="Bordados Computarizados">
                 </div>
                 <div class="service-description">
                     <h3>¿Qué son los Bordados Computarizados?</h3>
@@ -1143,16 +1276,28 @@
                 <div class="gallery-container">
                     <div class="gallery-slides">
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Cb3JkYWRvcyBDb21wdXRhcml6YWRvczwvdGV4dD4KICA8Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjUwIiBmaWxsPSIjZmYwMDAwIiAvPgo8L3N2Zz4=" alt="Bordados Computarizados 1">
+                            <img src="images/bord1.jpg" alt="Bordados Computarizados 1">
                         </div>
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Cb3JkYWRvcyBDb21wdXRhcml6YWRvczI8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YxYzQwZiIgLz4KPC9zdmc+" alt="Bordados Computarizados 2">
+                            <img src="images/bord2.jpg" alt="Bordados Computarizados 2">
                         </div>
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Cb3JkYWRvcyBDb21wdXRhcml6YWRvczM8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YyOTkzMCIgLz4KPC9zdmc+" alt="Bordados Computarizados 3">
+                            <img src="images/bord3.jpg" alt="Bordados Computarizados 3">
                         </div>
                         <div class="gallery-slide">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiB2aWV3Qm94PSIwIDAgNDAwIDMwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9IiNmZmYiIC8+CiAgPHRleHQgeD0iMjAwIiB5PSIxNTAiIGZvbnQtZmFtaWx5PSJIZWx2ZXRpY2EiIGZvbnQtd2VpZ2h0PSJib2xkIiBmb250LXNpemU9IjIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjAyMjIyIj5Cb3JkYWRvcyBDb21wdXRhcml6YWRvczQ8L3RleHQ+CiAgPGNpcmNsZSBjeD0iMTAwIiBjeT0iMTAwIiByPSI1MCIgZmlsbD0iI2YzOTkzMCIgLz4KPC9zdmc+" alt="Bordados Computarizados 4">
+                            <img src="images/bord4.jpg" alt="Bordados Computarizados 4">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/bord5.jpg" alt="Bordados Computarizados 5">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/bord6.jpg" alt="Bordados Computarizados 6">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/bord7.jpg" alt="Bordados Computarizados 7">
+                        </div>
+                        <div class="gallery-slide">
+                            <img src="images/bord8.jpg" alt="Bordados Computarizados 8">
                         </div>
                     </div>
                     <div class="gallery-controls">
@@ -1161,6 +1306,11 @@
                     </div>
                     <div class="gallery-indicators">
                         <div class="gallery-indicator active"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
+                        <div class="gallery-indicator"></div>
                         <div class="gallery-indicator"></div>
                         <div class="gallery-indicator"></div>
                         <div class="gallery-indicator"></div>
@@ -1218,7 +1368,12 @@
                         </div>
                         <div class="contact-text">
                             <h4>Teléfono</h4>
-                            <p>964 934 187<br>970 967 429<br>998 816 704<br>964 496 680</p>
+                            <p>
+                                <a href="https://wa.me/+51964934187" class="phone-link"><i class="fab fa-whatsapp"></i> 964 934 187 (Mercaderes)</a><br>
+                                <a href="https://wa.me/+51970967429" class="phone-link"><i class="fab fa-whatsapp"></i> 970 967 429 (Mercaderes)</a><br>
+                                <a href="https://wa.me/+51998816704" class="phone-link"><i class="fab fa-whatsapp"></i> 998 816 704 (Gamarra Wanka)</a><br>
+                                <a href="https://wa.me/+51964496680" class="phone-link"><i class="fab fa-whatsapp"></i> 964 496 680 (Gamarra Wanka)</a>
+                            </p>
                         </div>
                     </div>
                     <div class="contact-detail">
